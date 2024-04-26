@@ -1,0 +1,48 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <!--Header -->
+    <header>
+        <div id="logotipo">
+            <!--logo-->
+            <img src="{% static 'img/order-svgrepo-com.svg' %}" alt="logo">
+            <h1>Propiedad Excedente</h1>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="home/">Home</a></li>
+            <li><a href="about/">About</a></li>
+            <li><a href="contacto/">Contact</a></li>
+            <li><a href="login/">Sign In</a></li>
+        </ul>
+    </nav>
+
+
+    <div id="content">
+
+        <div class="box">
+            <h2 class="title">titulo de prueba</h2>
+            {% block content %}
+            <!--Contenido de otros templates-->
+            {% endblock %}
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Capstone Project &copy; Ronald Juma</p>
+    </footer>
+
+</body>
+
+</html>

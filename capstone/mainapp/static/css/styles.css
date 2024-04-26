@@ -1,0 +1,116 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+body {
+    background-color: #f2f2f2;
+
+}
+
+/* Estilos header */
+header {
+    width: 1000px;
+    height: 140px;
+    background-color: #7a7a7a;
+    margin: 0 auto;
+}
+
+/* Estilos logotipo */
+#logotipo {
+    width: 60%;
+    height: 140px;
+    margin: 0 auto;
+}
+
+
+#logotipo img {
+    display: block;
+    width: 60px;
+    margin-left: 90px;
+    float: left;
+    margin-top: 30px;
+}
+
+#logotipo h1 {
+    display: block;
+    letter-spacing: 2px;
+    margin-left: 15px;
+    float: left;
+    margin-top: 40px;
+    font-weight: lighter;
+    color: mediumspringgreen;
+
+}
+
+/* Estilos menu */
+nav {
+    width: 1050px;
+    height: 40px;
+    margin: 0 auto;
+    background-color: #7a7a7a;
+    border: 1px solid #3333;
+    box-shadow: 0px 22px 22px gray;
+    margin-bottom: 4;
+    /* Agregamos un borde y una sombra de caja para dar un efecto 3D */
+    border: 2px solid #000000;
+    box-shadow: 3 20px 40px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+nav ul {
+    list-style: none;
+    text-decoration: none;
+
+}
+
+nav ul li {
+    line-height: 40px;
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+
+}
+
+nav ul li a:hover {
+    background-color: mediumspringgreen;
+    box-shadow: 0px 0px 5px #444 inset;
+    color: white;
+    transition: all 0.5s ease;
+
+}
+
+/* Estilos contenido */
+#content {
+    margin-top: 45px;
+    width: 1210px;
+    /* Ancho del contenido */
+    min-height: 930px;
+    /* Altura mínima del contenido */
+    margin-bottom: 30px;
+    /* Margen inferior */
+
+}
+
+.box {
+    background: white;
+    width: 80%;
+    /* Ancho de la caja */
+    min-height: 935px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    margin: 0 auto;
+}
+
+.title {
+    color: #444;
+    letter-spacing: 1px;
+    font-size: 30px;
+}
