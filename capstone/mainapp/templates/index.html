@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<section class="invitacion">
+
+    <div class="solicitud-box">
+        <h2>Request an invitation</h2>
+        <p>To access exclusive surplus property content, request an invitation.</p>
+        <form method="post">
+            {% csrf_token %}
+            <input type="email" id="email" name="email" placeholder="Email:" required>
+            <button type="submit">Send request</button>
+        </form>
+
+</section>
+
+<section class="parrafo">
+    <p> Surplus property is also known as condemned property or surplus property.
+        It refers to a specific type of property that has been acquired by a government or entity.
+        An organization in special circumstances, such as for public infrastructure projects.
+        Urban development, environmental conservation or any other public purpose. </p>
+
+    <p> Characteristics of a surplus property:
+        Acquisition by a Public Entity: A surplus property is property that has been acquired by a
+        government entity or non-profit organization for the purpose of using it for a public or social project.</p>
+
+    <p> Acquisition Process: The acquisition of surplus properties is often
+        involves a legal process of expropriation or voluntary purchase. In some cases,
+        Property owners can be compensated for the loss of their property.
+        Use for Public Projects: Surplus properties are usually used for
+        public interest projects, such as the construction of roads, parks,
+        schools, hospitals or other services and facilities necessary for the community. </p>
+
+
+    <p> Change of Purpose: Once a property is considered surplus,
+        its previous use may change. For example, a plot of land that was
+        once private it can become a public space or be reassigned for other public purposes.
+        Regulation and Legislation: The acquisition and use of surplus property
+        are regulated by specific laws and regulations that vary by country
+        and local jurisdiction. These laws typically ensure that property owners receive
+        fair compensation and that property rights are respected.</p>
+
+
+</section>
+
+{% endblock %}'
