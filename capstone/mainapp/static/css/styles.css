@@ -12,10 +12,18 @@ body {
 
 /* Estilos header */
 header {
-    width: 1000px;
+    width: 100%;
+    max-width: 1000px;
     height: 140px;
-    background-color: #7a7a7a;
+    background-color: #0056b3;
     margin: 0 auto;
+}
+
+header h1 {
+    letter-spacing: 2px;
+    text-shadow: 5px 5px 10px rgba(70, 70, 70, 0.9),
+        9px 9px 18px rgba(70, 70, 70, 0.9),
+        10px 10px 20px rgba(70, 70, 70, 0.9);
 }
 
 /* Estilos logotipo */
@@ -25,6 +33,52 @@ header {
     margin: 0 auto;
 }
 
+/* Estilos para dispositivos con pantalla de hasta 600px de ancho */
+@media (max-width: 500px) {
+    header {
+        height: auto;
+    }
+
+    #logotipo {
+        width: 100%;
+        height: auto;
+    }
+
+    #logotipo img {
+        width: 50px;
+        margin-left: 15px;
+    }
+
+    #logotipo h1 {
+        margin-left: 5px;
+        font-size: 18px;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    #content {
+        width: 100%;
+    }
+
+    .box {
+        width: 100%;
+    }
+
+    .invitacion input[type="email"] {
+        width: 100%;
+    }
+
+    .parrafo {
+        width: 100%;
+
+    }
+
+    .footer {
+        width: 100%;
+    }
+}
 
 #logotipo img {
     display: block;
@@ -50,7 +104,7 @@ nav {
     width: 1050px;
     height: 40px;
     margin: 0 auto;
-    background-color: #7a7a7a;
+    background-color: #0056b3;
     border: 1px solid #3333;
     box-shadow: 0px 22px 22px gray;
     margin-bottom: 4;
@@ -75,6 +129,7 @@ nav ul li a {
     padding-left: 10px;
     padding-right: 10px;
     color: white;
+    text-align: center;
 
 }
 
@@ -98,6 +153,20 @@ nav ul li a:hover {
 
 }
 
+#content .invitacion {
+    background-image: url('../img/home-img.jpg');
+    /* replace with your image path */
+    background-size: cover;
+    background-position: center;
+    /* this will center the image */
+    background-repeat: no-repeat;
+    /* this will prevent the image from repeating */
+    padding: 20px;
+    border-radius: 10px;
+    height: 100%;
+}
+
+
 .box {
     background: white;
     width: 80%;
@@ -113,4 +182,88 @@ nav ul li a:hover {
     color: #444;
     letter-spacing: 1px;
     font-size: 30px;
+}
+
+/* Estilos para la invitacion */
+
+
+.invitacion h2 {
+    color: #fff;
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.invitacion p {
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.invitacion form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.invitacion input[type="email"] {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.invitacion button {
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.invitacion button:hover {
+    background-color: #0056b3;
+}
+
+.solicitud-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+/* estilo para el parrafo de la solicitud */
+.parrafo p {
+    color: #444;
+    font-size: 16px;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Estilos footer */
+footer {
+    width: 100%;
+    background-color: #0056b3;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+footer p {
+    font-size: 14px;
 }

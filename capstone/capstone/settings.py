@@ -122,3 +122,73 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+'''
+Para que pudieran solicitar la invitacion habia que implementar lo siguiente:
+
+# settings.py / Configurar las opciones de correo electrónico en settings.py
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'tu_email@gmail.com'  # Cambia esto por tu dirección de correo
+EMAIL_HOST_PASSWORD = 'tu_contraseña'   # Cambia esto por tu contraseña
+
+# views.py / rear una vista para procesar el formulario
+
+from django.shortcuts import render
+from django.core.mail import send_mail
+from django.conf import settings
+from django.http import HttpResponseRedirect
+from .forms import InvitacionForm  
+
+def solicitar_invitacion(request):
+    if request.method == 'POST':
+        form = InvitacionForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            # Envía el correo electrónico
+            send_mail(
+                'Solicitud de Invitación',
+                'Se ha solicitado una invitación para acceder al contenido de propiedades excedentes.',
+                settings.EMAIL_HOST_USER,
+                [email],
+                fail_silently=False,
+            )
+            # Redirige a una página de éxito o muestra un mensaje
+            return render(request, 'exito.html')  # Crea la plantilla exito.html
+    else:
+        form = InvitacionForm()
+    return render(request, 'home.html', {'form': form})
+
+# form.py / Crea un formulario
+
+from django import forms 
+
+class InvitacionForm(forms.Form):
+    email = forms.EmailField(label='Correo Electrónico')
+    
+# home.html / actulizar 
+
+<section class="invitacion">
+    <h2>Solicita una Invitación</h2>
+    <p>Para acceder al contenido exclusivo de propiedades excedentes, solicita una invitación.</p>
+    <form method="post" action="{% url 'solicitar_invitacion' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar Solicitud</button>
+    </form>
+</section>
+
+# urls.py / agregar el path
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.solicitar_invitacion, name='home'),
+]
+
+'''
