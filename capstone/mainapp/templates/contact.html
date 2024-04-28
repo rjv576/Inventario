@@ -1,0 +1,13 @@
+{%extends 'layout.html'%}
+
+{%load static%}
+
+{%block content%}
+<h2>Contact</h2>
+{% if name and lastname and email %}
+<h3>{{ name }} {{ lastname }}</h3>
+<p>Email: {{ email }}</p>
+{% endif %}
+{%endblock%}
+
+
