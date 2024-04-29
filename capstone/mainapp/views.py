@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 from .models import Producto
 from .forms import RegistrationForm
 
@@ -34,16 +34,12 @@ def login_request(request):
         # In case of authentication failure, you can handle it here
     return render(request, 'login.html')
 
-def contact(request, nombre="", apellidos="", correo=""):
+def contact(request):
     """
     This function handles the contact view.
     """
-    context = {
-        'name': nombre,
-        'lastname': apellidos,
-        'email' : correo,
-    }
-    return render(request,'contact.html', context)
+  
+    return render(request,'contact.html')
 
 def about(request):
     """
@@ -82,11 +78,13 @@ def register_page(request):
     if request.method == 'POST':
         register_form = RegistrationForm(request.POST)
         if register_form.is_valid():
+            messages.success(request, 'Account created successfully')
             register_form.save() # Save the user to the database
             return redirect('home')
         else:
             print(register_form.errors) # Print the errors to the console
         
     return render(request, 'users/register.html', {
+        'title': 'Register',
         'register_form': register_form
     })

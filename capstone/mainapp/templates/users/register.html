@@ -4,17 +4,22 @@
 
 
 {% block content %}
+{{register_form.errors}}
 <div class="container">
-    <div class="row">
-        <div class="col-md-6 mx-auto">
-            <div class="card card-body">
-                <h3 class="text-center">Register</h3>
-                <form method="post" action="{%url 'register' %}">
-                    {% csrf_token %}
-                    {{ register_form.as_p }}
-                    <button type="submit" class="btn btn-primary btn-block">Register</button>
-                </form>
-            </div>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <form method="post" action="{%url 'register' %}">
+        <h1>{{title}}<h1>
+        {% csrf_token %}
+        {% for field in register_form %}
+           <label>{{field.label}}</label>
+            {{field}}
+        {% endfor %}
+        <div class="clearfix">
+            <button type="submit" class="btn-primary">Register</button>
         </div>
-    </div>
+        
+    </form>
+</div>
+
+    
 {%endblock%}

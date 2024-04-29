@@ -143,13 +143,11 @@ nav ul li a:hover {
 
 /* Estilos contenido */
 #content {
-    margin-top: 45px;
-    width: 1210px;
-    /* Ancho del contenido */
-    min-height: 930px;
-    /* Altura mínima del contenido */
-    margin-bottom: 30px;
-    /* Margen inferior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* Keeps content stacked vertically */
 
 }
 

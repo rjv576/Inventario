@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('home/', views.index, name='home'),
-    path('contact/<str:nombre>/<str:apellidos>/<str:correo>/', views.contact, name='contact'),# /ronald/juma/juma_120673@students.pupr.edu/
+    path('contact/', views.contact, name='contact'),
     path('about/', views.about, name='about'),
     path('create-product/', views.create_product, name='create-product'),
     path('about/', views.about, name='about'),
