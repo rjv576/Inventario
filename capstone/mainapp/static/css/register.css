@@ -1,5 +1,11 @@
+body,
+nav {
+    margin: 0;
+    padding: 0;
+}
+
 .box form {
-    background: #333;
+    background-color: rgba(51, 51, 51, 0.5);
     padding: 4em 4em 2em;
     max-width: 400px;
     margin: 50px auto 0;
@@ -7,10 +13,23 @@
     border-radius: 2px;
     font-size: 9px;
     color: #fff;
+
+}
+
+form h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    /* Convierte el texto a mayúsculas */
 }
 
 .box form input,
 .box form label {
+    text-align: left;
+    /* Alinea el texto a la izquierda */
     display: block;
     padding: 5px;
     padding-left: 0px;
@@ -21,6 +40,10 @@
 .box form input[type="password"] {
     width: 100%;
     margin-bottom: 10px;
+    background-color: rgba(51, 51, 51, 0.5);
+    border: 1px solid #fff;
+    border-radius: 10px;
+    color: #fff;
 }
 
 .box form input[type="submit"]:hover,
@@ -60,9 +83,20 @@ nav ul li a:hover {
 }
 
 body {
-    background-image: url('https://source.unsplash.com/random/1920x1080');
+    background-image: url('../img/Register-page.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
+}
+
+button[type="submit"] {
+    display: block;
+    background-color: rgba(51, 51, 51, 0.5);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
 }

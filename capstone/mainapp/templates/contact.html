@@ -1,4 +1,4 @@
-{% extends "bases/base-usuario.html" %}
+{% extends "layout.html" %}
 {%load static%}
 
 {%block content%}
@@ -17,7 +17,7 @@
       <input type="email" id="email" name="email" placeholder="Your email..">
   
       <label for="subject">Subject</label>
-      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+      <textarea type="subject" id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
   
       <input type="submit" value="Submit">
   
