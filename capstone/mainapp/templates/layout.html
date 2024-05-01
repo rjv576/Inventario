@@ -12,18 +12,23 @@
 
     <nav>
         <ul>
-        
 
+            
+            
             {% if user.email %}
-                <li><a href="{% url 'inventory' %}">Inventory</a></li>
+                <li><a href="{% url 'inventory' %}">Profile</a></li>
                 <li><a href="{% url 'logout' %}">logout</a></li>
-                <li><a href="{% url 'products' %}">Profile</a></li>
+                <li><a href="{% url 'products' %}">Inventory</a></li>
+                {% if user.is_superuser %}
+                <li><a href="{% url 'admin:index' %}">Admin</a></li>
+                <li><a href="{% url 'register' %}">Add User</a></li>
+                {% endif %}
             {% else %}
                 <li><a href="{% url 'index' %}">Home</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
                 <li><a href="{% url 'contact' %}">Contact</a></li>
                 <li><a href="{% url 'login' %}">Sign In</a></li>
-                <li><a href="{% url 'register' %}">Sign Up</a></li>
+                
             {% endif %}
              
 

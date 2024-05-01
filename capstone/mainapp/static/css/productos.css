@@ -1,6 +1,68 @@
-.image img {
-    width: 20%;
-    /* Ajusta el ancho de la imagen al 100% del contenedor. */
+.title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.responsive {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    color: #fff;
+}
+
+div.gallery {
+    border: 1px solid #ccc;
+    flex: 0 0 33.33%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
     height: auto;
-    /* Ajusta el alto automáticamente para mantener la proporción de la imagen. */
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+.desc h2 {
+    font-size: 1.5em;
+    /* Ajusta este valor según tus necesidades */
+}
+
+.desc p {
+    font-size: 1em;
+    /* Ajusta este valor según tus necesidades */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+@media only screen and (max-width: 700px) {
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
 }

@@ -3,8 +3,11 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Producto
 from .forms import RegistrationForm
+
 
 # Create your views here.
 
@@ -86,16 +89,10 @@ def products(request):
     })
 
 
-# edita un producto
-def edit_product(request, id):
-    """
-    This function handles the edit_product view.
-    """
-    producto = Producto.objects.get(pk=id)
-    producto.save()
-    return redirect('products')
+def is_superuser_check(user):
+    return user.is_superuser
 
-
+@user_passes_test(is_superuser_check)
 def register_page(request):
     register_form = RegistrationForm()
     
@@ -113,6 +110,7 @@ def register_page(request):
         'register_form': register_form
     })
     
+@login_required(login_url='login')
 def inventory_page(request):
     """
     This function handles the inventory view.

@@ -6,30 +6,22 @@
 <link rel="stylesheet" href="{% static 'css/productos.css' %}">
 
 <h1 class="title"> Propiedad Excendete </h1>
-
+<div class="responsive">
     {% for producto in productos %}
-       <article class="product-item">
-            {% if producto.image != 'null' and producto.image.url|length >= 1 and producto.image.url %}
-                <div class="image">
+       
+            <div class="gallery">
+                {% if producto.image != 'null' and producto.image.url|length >= 1 and producto.image.url %}
                     <img src="{{ producto.image.url }}" alt="{{ producto.title }}">
+                {% endif %}
+                <div class="desc">  
+                    <h2>{{producto.nombre}}</h2>
+                    <span class="date">{{producto.created_at}}</span>
+                    <p>{{producto.descripcion|safe}}</p>
                 </div>
-            {% endif %}
-
-        <div class="data">  
-            <h2>{{producto.nombre}}</h2>
-            <span class="date">{{producto.created_at}}</span>
-
-                <p>{{producto.descripcion|safe}}
-                    <a href="{% url 'delete-product' producto.id %}">Delete Product</a>
-                    <a href="{% url 'edit-product' producto.id %}">Update Product</a>
-
-                </p>
-                
-                <br>
-        </div>
-      
+            </div>
+        <div class="clearfix"></div>
        
     {% endfor %}
-   
+</div>
 
 {% endblock%}
