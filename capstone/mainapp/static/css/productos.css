@@ -1,0 +1,6 @@
+.image img {
+    width: 20%;
+    /* Ajusta el ancho de la imagen al 100% del contenedor. */
+    height: auto;
+    /* Ajusta el alto automáticamente para mantener la proporción de la imagen. */
+}

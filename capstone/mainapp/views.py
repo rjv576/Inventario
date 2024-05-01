@@ -57,15 +57,43 @@ def create_product(request):
     producto.save()
     return HttpResponse(f'Producto {producto.title} creado exitosamente')
 
+# Editar un producto
+def edit_product(request, id):
+    """
+    This function handles the edit_product view.
+    """
+    producto = Producto.objects.get(pk=id) # Get the product by its id
+    producto.title = 'Producto editado' # Change the title of the product
+    producto.descripcion = 'Este producto ha sido editado' # Change the description of the product
+    producto.save()
+    return HttpResponse(f'Producto {producto.title} editado exitosamente')
 
-def products(request):
+# eliminar un producto
+def delete_product(request, id):
     """
-    This function handles the products view.
+    This function handles the delete_product view.
     """
+    producto = Producto.objects.get(pk=id)
+    producto.delete()
+    return redirect('products')
+
+# listar productos
+def products(request): 
+    productos = Producto.objects.all()
     
-    producto = Producto.objects.get(pk=1)
-    
-    return HttpResponse(f"Producto: {producto.title} - Descripción: {producto.descripcion}")
+    return render(request,'inventory/productos.html', {
+        'productos': productos
+    })
+
+
+# edita un producto
+def edit_product(request, id):
+    """
+    This function handles the edit_product view.
+    """
+    producto = Producto.objects.get(pk=id)
+    producto.save()
+    return redirect('products')
 
 
 def register_page(request):
@@ -90,3 +118,6 @@ def inventory_page(request):
     This function handles the inventory view.
     """
     return render(request,'inventory/inventory.html')
+def logout_user(request):
+    logout(request)
+    return redirect('login')

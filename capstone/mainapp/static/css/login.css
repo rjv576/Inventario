@@ -81,7 +81,7 @@ form {
 
 .login-box {
     height: 40em;
-    background-color: transparent;
+    background-color: rgba(51, 51, 51, 0.5);
     padding: 4em 4em 2em;
     max-width: 400px;
     margin: 50px auto 0;

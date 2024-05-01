@@ -12,10 +12,22 @@
 
     <nav>
         <ul>
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="{% url 'contact' %}">Contact</a></li>
-            <li><a href="{% url 'login' %}">Sign In</a></li>
+        
+
+            {% if user.email %}
+                <li><a href="{% url 'inventory' %}">Inventory</a></li>
+                <li><a href="{% url 'logout' %}">logout</a></li>
+                <li><a href="{% url 'products' %}">Profile</a></li>
+            {% else %}
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'login' %}">Sign In</a></li>
+                <li><a href="{% url 'register' %}">Sign Up</a></li>
+            {% endif %}
+             
+
+               
         </ul>
     </nav>
 
