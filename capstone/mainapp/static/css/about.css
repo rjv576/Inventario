@@ -1,0 +1,21 @@
+.container {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h2 {
+    color: #fff;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #fff;
+}
+
+p {
+    line-height: 1.6;
+    color: #fff;
+}

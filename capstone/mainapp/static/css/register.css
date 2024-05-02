@@ -82,14 +82,6 @@ nav ul li a:hover {
     color: #007bff;
 }
 
-body {
-    background-image: url('../img/Register-page.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-}
-
 button[type="submit"] {
     display: block;
     background-color: rgba(51, 51, 51, 0.5);

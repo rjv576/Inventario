@@ -19,6 +19,7 @@
                 <li><a href="{% url 'inventory' %}">Profile</a></li>
                 <li><a href="{% url 'logout' %}">logout</a></li>
                 <li><a href="{% url 'products' %}">Inventory</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
                 {% if user.is_superuser %}
                 <li><a href="{% url 'admin:index' %}">Admin</a></li>
                 <li><a href="{% url 'register' %}">Add User</a></li>

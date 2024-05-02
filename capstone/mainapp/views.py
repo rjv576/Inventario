@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.db.models import Q
 from .models import Producto
 from .forms import RegistrationForm
 
@@ -82,7 +83,11 @@ def delete_product(request, id):
 
 # listar productos
 def products(request): 
-    productos = Producto.objects.all()
+    search_query = request.GET.get('search', '')
+    if search_query:
+        productos = Producto.objects.filter(Q(title__icontains=search_query) | Q(descripcion__icontains=search_query))
+    else:
+        productos = Producto.objects.all()
     
     return render(request,'inventory/productos.html', {
         'productos': productos
@@ -116,6 +121,7 @@ def inventory_page(request):
     This function handles the inventory view.
     """
     return render(request,'inventory/inventory.html')
+
 def logout_user(request):
     logout(request)
     return redirect('login')

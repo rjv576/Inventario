@@ -5,7 +5,12 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/productos.css' %}">
 
-<h1 class="title"> Propiedad Excendete </h1>
+<h1 class="title"> Surplus Property</h1>
+<!-- Formulario de búsqueda -->
+<form method="get">
+    <input type="text" name="search" placeholder="Search products">
+    <input type="submit" value="Search">
+</form>
 <div class="responsive">
     {% for producto in productos %}
        

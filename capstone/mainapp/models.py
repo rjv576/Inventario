@@ -24,10 +24,3 @@ class Producto(models.Model):
             img.thumbnail(output_size)  # Resize the image.
             img.save(self.image.path)  # Save the image back to the same path.
   
-    
-# clase de categorias para mi inventario
-class Categoria(models.Model):    
-    nombre = models.CharField(max_length=100)
-    descripcion = models.CharField(max_length=250)
-    created_at = models.DateField()
-    
