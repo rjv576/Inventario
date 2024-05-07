@@ -3,11 +3,28 @@
 
 
 {%block content%}
+<link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+<div class="container">
     <h1>{{title}}</h1>
+    <h1>Perfil de {{ user.username }}</h1>
+    <div class="info">
+        <p>Name: {{ user.first_name }}</p>
+    </div>
+        <p>Last Name: {{ user.last_name }}</p>
+    <br>
+    <div class="info">
+    <p>Email: {{ user.email }}</p>
+    </div>
+    <br>
+    <div class="info">
+    <p>Join at: {{ user.date_joined }}</p>
+    </div>
+    <br>
+    <div class="info">
+    <p>Last login: {{ user.last_login }}</p>
+    </div>
 
-        <h2>Bienvenido {{request.user.first_name}} {{user.last_name}}</h2>
-        <p>
-            {{user.email}}
-        </p>
+    
+</div>
 
 {%endblock%}
