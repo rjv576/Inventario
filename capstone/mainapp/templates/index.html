@@ -7,11 +7,8 @@
     <div class="solicitud-box">
         <h2>Request an invitation</h2>
         <p>To access exclusive surplus property content, request an invitation.</p>
-        <form method="post">
-            {% csrf_token %}
-            <input type="email" id="email" name="email" placeholder="Email:" required>
-            <button type="submit">Send request</button>
-        </form>
+        <a href="{% url 'contact' %}" class="btn">Contact</a>
+    </div>
 
 </section>
 

@@ -6,53 +6,13 @@
 }
 
 body {
-    background-color: #f2f2f2;
+    background-color: #333;
 
 }
 
-/* Estilos header */
-header {
-    width: 100%;
-    max-width: 1000px;
-    height: 140px;
-    background-color: #0056b3;
-    margin: 0 auto;
-}
-
-header h1 {
-    letter-spacing: 2px;
-    text-shadow: 5px 5px 10px rgba(70, 70, 70, 0.9),
-        9px 9px 18px rgba(70, 70, 70, 0.9),
-        10px 10px 20px rgba(70, 70, 70, 0.9);
-}
-
-/* Estilos logotipo */
-#logotipo {
-    width: 60%;
-    height: 140px;
-    margin: 0 auto;
-}
 
 /* Estilos para dispositivos con pantalla de hasta 600px de ancho */
-@media (max-width: 500px) {
-    header {
-        height: auto;
-    }
-
-    #logotipo {
-        width: 100%;
-        height: auto;
-    }
-
-    #logotipo img {
-        width: 50px;
-        margin-left: 15px;
-    }
-
-    #logotipo h1 {
-        margin-left: 5px;
-        font-size: 18px;
-    }
+@media (max-width: 600px) {
 
     nav {
         width: 100%;
@@ -101,60 +61,57 @@ header h1 {
 
 /* Estilos menu */
 nav {
-    width: 1050px;
-    height: 40px;
-    margin: 0 auto;
-    background-color: #0056b3;
-    border: 1px solid #3333;
+    background-color: #333;
+    padding: 10px;
     box-shadow: 0px 22px 22px gray;
-    margin-bottom: 4;
-    /* Agregamos un borde y una sombra de caja para dar un efecto 3D */
     border: 2px solid #000000;
-    box-shadow: 3 20px 40px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 3px 20px 40px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 nav ul {
     list-style: none;
-    text-decoration: none;
-
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
 }
 
 nav ul li {
+    display: inline;
     line-height: 40px;
-    float: left;
 }
 
 nav ul li a {
-    display: block;
-    padding-left: 10px;
-    padding-right: 10px;
-    color: white;
-    text-align: center;
-
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    background-color: mediumspringgreen;
-    box-shadow: 0px 0px 5px #444 inset;
-    color: white;
-    transition: all 0.5s ease;
+    color: #007bff;
+    background-color: transparent;
+}
 
+/* Estilos contenido */
+body,
+#content {
+    margin: 0;
+    padding: 0;
 }
 
 /* Estilos contenido */
 #content {
-    margin-top: 45px;
-    width: 1210px;
-    /* Ancho del contenido */
-    min-height: 930px;
-    /* Altura mínima del contenido */
-    margin-bottom: 30px;
-    /* Margen inferior */
-
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: center;
+    flex-direction: column;
+    /* Keeps content stacked vertically */
 }
 
 #content .invitacion {
-    background-image: url('../img/home-img.jpg');
     /* replace with your image path */
     background-size: cover;
     background-position: center;
@@ -168,14 +125,15 @@ nav ul li a:hover {
 
 
 .box {
-    background: white;
-    width: 80%;
-    /* Ancho de la caja */
+    background-image: url('../img/Register-page.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
     min-height: 935px;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 2px;
-    margin: 0 auto;
 }
 
 .title {
@@ -188,14 +146,14 @@ nav ul li a:hover {
 
 
 .invitacion h2 {
-    color: #fff;
+    color: rgba(228, 225, 192, 0.581);
     font-size: 24px;
     text-align: left;
     margin-bottom: 20px;
 }
 
 .invitacion p {
-    color: #fff;
+    color: rgba(228, 225, 192, 0.581);
     font-size: 16px;
     text-align: center;
     margin-top: 10px;
@@ -230,9 +188,6 @@ nav ul li a:hover {
     transition: background-color 0.3s ease;
 }
 
-.invitacion button:hover {
-    background-color: #0056b3;
-}
 
 .solicitud-box {
     display: flex;
@@ -242,19 +197,41 @@ nav ul li a:hover {
     margin-top: 20px;
 }
 
+.solicitud-box a {
+    display: inline-block;
+    color: #000000;
+    background: rgb(0, 0, 0, 0, 0.5);
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 15%;
+    padding: 10px 20px;
+    /* Add padding */
+    border: 1px solid #000000;
+    /* Add border */
+}
+
+.solicitud-box a:hover {
+    background-color: #1f7e58;
+    color: #ffffff;
+    /* Change text color on hover */
+    transition: all 0.5s ease;
+}
+
 /* estilo para el parrafo de la solicitud */
 .parrafo p {
     color: #444;
     font-size: 16px;
-    text-align: left;
+    text-align: center;
     margin-top: 10px;
     margin-bottom: 20px;
+    color: #fff;
 }
 
 /* Estilos footer */
 footer {
     width: 100%;
-    background-color: #0056b3;
+    background-color: #333;
     color: white;
     text-align: center;
     padding: 10px 0;
