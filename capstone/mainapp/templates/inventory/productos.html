@@ -1,9 +1,20 @@
 {%extends 'layout.html'%}
 {% load static %}
 
-
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/productos.css' %}">
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+        {{ message }}
+        <button class="close-message">x</button>
+
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
 
 <h1 class="title"> Surplus Property</h1>
 <!-- Formulario de búsqueda -->
@@ -19,14 +30,27 @@
                     <img src="{{ producto.image.url }}" alt="{{ producto.title }}">
                 {% endif %}
                 <div class="desc">  
-                    <h2>{{producto.nombre}}</h2>
-                    <span class="date">{{producto.created_at}}</span>
+                    <h2>{{producto.title}}</h2>
                     <p>{{producto.descripcion|safe}}</p>
+                    <span class="date">{{producto.created_at}}</span>
                 </div>
+                {% if user.is_staff or user.is_superuser %}
+                <div class= "del"> 
+                    <form action="{% url 'delete-product' producto.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+                    </form>
+                
+                </div>
+                <div class= "edit"> 
+                    <a href="{% url 'edit-product' producto.id %}">Edit</a>
+                </div>
+                {% endif %}
             </div>
+            
         <div class="clearfix"></div>
        
     {% endfor %}
 </div>
-
+<script src="{% static 'js/message.js' %}"></script>
 {% endblock%}

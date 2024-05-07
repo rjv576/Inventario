@@ -25,14 +25,15 @@ urlpatterns = [
     path('home/', views.index, name='home'),
     path('contact/', views.contact, name='contact'),
     path('about/', views.about, name='about'),
-    path('create-product/', views.create_product, name='create-product'),
     path('about/', views.about, name='about'),
     path('products/', views.products, name='products'),
     path('register/', views.register_page, name='register'),
     path('login/', views.loging_page, name='login'),
     path('logout/', views.logout_user, name='logout'),
     path('inventory/', views.inventory_page, name='inventory'),
-    path('delete-product/<int:id>/', views.delete_product, name='delete-product'),
+    path('delete-product/<int:id_producto>/', views.delete_product, name='delete-product'),
+    path('create-product/', views.create_product, name='create-product'),
+    path('edit-product/<int:id>/', views.edit_product, name='edit-product'),
     
   
 ]

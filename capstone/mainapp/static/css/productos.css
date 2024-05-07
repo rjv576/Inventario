@@ -47,6 +47,26 @@ div.desc {
     box-sizing: border-box;
 }
 
+/* Botón de edición */
+div.gallery .edit {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+}
+
+div.gallery .edit a {
+    text-decoration: none;
+    color: white;
+}
+
+div.gallery .edit:hover {
+    background-color: #45a049;
+}
+
 
 @media only screen and (max-width: 700px) {
     .responsive {
@@ -93,4 +113,72 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
     background-color: #1f7e58;
+}
+
+/* Estilos para los mensajes */
+/*estilos para el mensaje de error*/
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.messages li {
+    list-style: none;
+    animation: slideDown 0.3s ease;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.messages li.info {
+    background-color: #d9edf7;
+    color: #31708f;
+    border: 1px solid #bce8f1;
+}
+
+.messages li.error {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+}
+
+.messages li.warning {
+    background-color: #fcf8e3;
+    color: #8a6d3b;
+    border: 1px solid #faebcc;
+}
+
+.messages li.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+}
+
+.close-message {
+    background-color: #f44336;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    margin-top: -10px;
+    margin-right: -10px;
+}
+
+.close-message:hover {
+    background-color: #d32f2f;
 }
