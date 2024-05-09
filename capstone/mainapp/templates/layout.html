@@ -13,34 +13,39 @@
     <nav>
         <ul>
 
-            
-            
             {% if user.email %}
-                <li><a href="{% url 'inventory' %}">Profile</a></li>
-                <li><a href="{% url 'logout' %}">logout</a></li>
-                <li><a href="{% url 'products' %}">Inventory</a></li>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
-                {% if user.is_superuser %}
-                <li><a href="{% url 'admin:index' %}">Admin</a></li>
-                <li><a href="{% url 'register' %}">Add User</a></li>
-                <li><a href="{% url 'create-product' %}">Add Product</a></li>
-                <li><a href="{% url 'list-users' %}">List Users</a></li>
-                {% endif %}
-                {% if user.is_staff %}
-                <li><a href="{% url 'admin:index' %}">Admin</a></li>
-                <li><a href="{% url 'register' %}">Add User</a></li>
-                <li><a href="{% url 'create-product' %}">Add Product</a></li>
-                <li><a href="{% url 'list-users' %}">List Users</a></li>
-                {% endif %}
-            {% else %}
-                <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
-                <li><a href="{% url 'login' %}">Sign In</a></li>
-                
+            <li><a href="{% url 'inventory' %}">Profile</a></li>
+            <li><a href="{% url 'logout' %}">logout</a></li>
+            <li><a href="{% url 'products' %}">Inventory</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            {% if user.is_superuser %}
+            <details>
+                <summary>Admin</summary>
+                <ul>
+                    <li><a href="{% url 'admin:index' %}">Admin Dashboard</a></li>
+                    <li><a href="{% url 'register' %}">Add User</a></li>
+                    <li><a href="{% url 'create-product' %}">Add Product</a></li>
+                    <li><a href="{% url 'list-users' %}">List Users</a></li>
+                </ul>
+            </details>
             {% endif %}
-             
-
+            {% if user.is_staff %}
+            <details>
+                <summary>Staff</summary>
+                <ul>
+                    <li><a href="{% url 'admin:index' %}">Admin Dashboard</a></li>
+                    <li><a href="{% url 'register' %}">Add User</a></li>
+                    <li><a href="{% url 'create-product' %}">Add Product</a></li>
+                    <li><a href="{% url 'list-users' %}">List Users</a></li>
+                </ul>
+            </details>
+            {% endif %}
+        {% else %}
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'login' %}">Sign In</a></li>
+        {% endif %}
                
         </ul>
     </nav>
