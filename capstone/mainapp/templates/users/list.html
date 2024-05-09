@@ -1,12 +1,40 @@
 {%extends 'layout.html'%}
 {% load static %}
 
-{% for user in users %}
-    <p>{{ user.username }}</p>
-    <p>{{ user.email }}</p>
-    <div class= "edit"> 
-        <a href="{% url 'edit-user' user.id %}">Edit</a>
-        <a href="{% url 'delete-user' user.id %}">Delete</a>
-    </div>
-    <!-- Add more fields as needed -->
-{% endfor %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/list-user.css' %}">
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<h2>Lista de usuarios</h2>
+<table>
+    <thead>
+      <tr>
+        <th>Nombre de usuario</th>
+        <th>Email</th>
+        <th>Acciones</th>
+        <!-- Agrega aquí más columnas para otros campos que quieras mostrar -->
+      </tr>
+    </thead>
+    <tbody>
+
+    {% for user in users %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <!-- Agrega aquí más columnas para otros campos que quieras mostrar -->
+            <td>
+                <a href="{% url 'edit-user' user.id %}">Editar</a>
+                <a href="{% url 'delete-user' user.id %}">Eliminar</a>
+            </td>
+        </tr>
+    
+    {% endfor %}
+    </tbody>
+</table>
+<script src="{% static 'js/message.js' %}"></script>
+{% endblock %}

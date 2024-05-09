@@ -4,7 +4,10 @@
 
 
 {% block content %}
-{{register_form.errors}}
+<div class="error">
+    {{register_form.error}}
+</div>
+
 <div class="container">
     <link rel="stylesheet" href="{% static 'css/register.css' %}">
     <form method="post" action="{%url 'register' %}">

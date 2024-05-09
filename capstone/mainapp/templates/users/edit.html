@@ -12,7 +12,7 @@
 {{form.errors}}
 <div class="container">
     <link rel="stylesheet" href="{% static 'css/register.css' %}">
-    <form method="post" action="{%url 'edit-user' %}">
+    <form method="post" action="{%url 'edit-user' user.id  %}">
         <h1>{{title}}<h1>
         {% csrf_token %}
         {% for field in form %}

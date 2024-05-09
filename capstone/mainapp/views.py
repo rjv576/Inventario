@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -18,6 +17,8 @@ from django.contrib.auth.models import User
 def index(request):
     return render(request,'index.html')
 
+def is_staff_check(user):
+    return user.is_staff
 
 # vista del login request
 def loging_page(request):
@@ -54,6 +55,7 @@ def about(request):
 
 
 # Editar un producto
+@user_passes_test(is_staff_check)
 @login_required(login_url='login') # Redirect to the login page if the user is not logged in
 def edit_product(request, id): # request and the product ID
     if not request.user.is_staff and not request.user.is_superuser:
@@ -74,6 +76,7 @@ def edit_product(request, id): # request and the product ID
         'producto': producto
     })  
 # Crear Producto
+@user_passes_test(is_staff_check)
 @login_required(login_url='login') # Redirect to the login page if the user is not logged in
 def create_product(request):
     if not request.user.is_staff and not request.user.is_superuser:
@@ -92,6 +95,7 @@ def create_product(request):
     return render(request, 'inventory/create_product.html')
 
 # eliminar un producto
+@user_passes_test(is_staff_check)
 @login_required(login_url='login') # Redirect to the login page if the user is not logged in
 def delete_product(request, id_producto):
     if not request.user.is_staff and not request.user.is_superuser:
@@ -115,11 +119,10 @@ def products(request):
     })
     
 
-def is_superuser_check(user): # Function to check if a user is a superuser
-    return user.is_superuser
+
 
 # vista para crear Usuario
-@user_passes_test(is_superuser_check) # Only superusers can access this view
+@user_passes_test(is_staff_check) # Only staff members can access this view
 def register_page(request):
     register_form = RegistrationForm()
     
@@ -150,14 +153,16 @@ def logout_user(request):
     return redirect('login')
 
 # vista para editar Usuario
+@user_passes_test(is_staff_check)
 @login_required(login_url='login')
-def edit_user(request):
+def edit_user(request, id):
     if request.method == 'POST':
         form = UserEditForm(request.POST, instance=request.user)
         
         if form.is_valid():
             messages.success(request, 'The profile was succesfully update!')
             form.save()
+            return redirect('list-users')
             
         else:
             messages.error(request, 'Please correct the error below')
@@ -167,12 +172,14 @@ def edit_user(request):
 
 
 # Listar todos los Usuarios
+@user_passes_test(is_staff_check)
 @login_required(login_url='login')
 def list_users(request):
     users = User.objects.all()
     return render(request, 'users/list.html', {'users': users})
 
 # Elimiinar un Usuario
+@user_passes_test(is_staff_check)
 @login_required(login_url='login')
 def delete_user(request, id):
     user = User.objects.get(id=id)

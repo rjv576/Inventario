@@ -92,3 +92,11 @@ button[type="submit"] {
     cursor: pointer;
     width: 100%;
 }
+/* estilos para el error */
+.error {
+    list-style: none;
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
