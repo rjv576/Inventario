@@ -24,6 +24,13 @@
                 <li><a href="{% url 'admin:index' %}">Admin</a></li>
                 <li><a href="{% url 'register' %}">Add User</a></li>
                 <li><a href="{% url 'create-product' %}">Add Product</a></li>
+                <li><a href="{% url 'list-users' %}">List Users</a></li>
+                {% endif %}
+                {% if user.is_staff %}
+                <li><a href="{% url 'admin:index' %}">Admin</a></li>
+                <li><a href="{% url 'register' %}">Add User</a></li>
+                <li><a href="{% url 'create-product' %}">Add Product</a></li>
+                <li><a href="{% url 'list-users' %}">List Users</a></li>
                 {% endif %}
             {% else %}
                 <li><a href="{% url 'index' %}">Home</a></li>
