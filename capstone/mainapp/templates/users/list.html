@@ -1,0 +1,12 @@
+{%extends 'layout.html'%}
+{% load static %}
+
+{% for user in users %}
+    <p>{{ user.username }}</p>
+    <p>{{ user.email }}</p>
+    <div class= "edit"> 
+        <a href="{% url 'edit-user' user.id %}">Edit</a>
+        <a href="{% url 'delete-user' user.id %}">Delete</a>
+    </div>
+    <!-- Add more fields as needed -->
+{% endfor %}
