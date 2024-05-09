@@ -10,6 +10,8 @@ from django.urls import reverse
 from django.http import HttpResponseForbidden
 from .models import Producto
 from .forms import RegistrationForm
+from .forms import UserEditForm
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -116,6 +118,7 @@ def products(request):
 def is_superuser_check(user): # Function to check if a user is a superuser
     return user.is_superuser
 
+# vista para crear Usuario
 @user_passes_test(is_superuser_check) # Only superusers can access this view
 def register_page(request):
     register_form = RegistrationForm()
@@ -145,3 +148,34 @@ def inventory_page(request):
 def logout_user(request):
     logout(request)
     return redirect('login')
+
+# vista para editar Usuario
+@login_required(login_url='login')
+def edit_user(request):
+    if request.method == 'POST':
+        form = UserEditForm(request.POST, instance=request.user)
+        
+        if form.is_valid():
+            messages.success(request, 'The profile was succesfully update!')
+            form.save()
+            
+        else:
+            messages.error(request, 'Please correct the error below')
+    else: 
+        form = UserEditForm(instance=request.user)
+    return render(request, 'users/edit.html', {'form':form})
+
+
+# Listar todos los Usuarios
+@login_required(login_url='login')
+def list_users(request):
+    users = User.objects.all()
+    return render(request, 'users/list.html', {'users': users})
+
+# Elimiinar un Usuario
+@login_required(login_url='login')
+def delete_user(request, id):
+    user = User.objects.get(id=id)
+    user.delete()
+    messages.success(request, 'User deleted successfully.')
+    return redirect('list-users')

@@ -13,6 +13,7 @@
 }
 
 div.gallery {
+    position: relative;
     border: 1px solid #ccc;
     flex: 0 0 33.33%;
     box-sizing: border-box;
@@ -35,12 +36,12 @@ div.desc {
 
 .desc h2 {
     font-size: 1.5em;
-    /* Ajusta este valor según tus necesidades */
+
 }
 
 .desc p {
     font-size: 1em;
-    /* Ajusta este valor según tus necesidades */
+
 }
 
 * {
@@ -49,7 +50,10 @@ div.desc {
 
 /* Botón de edición */
 div.gallery .edit {
-    background-color: #4CAF50;
+    position: absolute;
+    bottom: 0;
+    right: 5;
+    background-color: rgba(51, 51, 51, 0.5);
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
