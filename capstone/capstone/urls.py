@@ -25,7 +25,6 @@ urlpatterns = [
     path('home/', views.index, name='home'),
     path('contact/', views.contact, name='contact'),
     path('about/', views.about, name='about'),
-    path('about/', views.about, name='about'),
     path('products/', views.products, name='products'),
     path('register/', views.register_page, name='register'),
     path('login/', views.loging_page, name='login'),
@@ -37,8 +36,7 @@ urlpatterns = [
     path('edit-user/<int:id>/', views.edit_user, name='edit-user'),
     path('list-users/', views.list_users, name='list-users'),
     path('delete-user/<int:id>/', views.delete_user, name='delete-user'),
-    
-  
+
 ]
 
 # Ruta imagenes

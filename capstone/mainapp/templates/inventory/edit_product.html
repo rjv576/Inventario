@@ -3,10 +3,10 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/create-product.css' %}">
+<link rel="stylesheet" href="{% static 'css/edit-product.css' %}">
 
 <div class="container">
-    <h2>Edit product</h2>
+    <h2>Edit Product</h2>
     <form method="POST" action="{% url 'edit-product' producto.id %}" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">
